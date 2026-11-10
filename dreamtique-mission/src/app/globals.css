@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Option 6, "Mission": the clean, full-bleed launch-site look, on white. Hard edges, hairlines, big condensed capitals. */
+@theme {
+  --color-ink: #0b0d12;
+  --color-mute: #565d6b;
+  --color-line: #dde1e8;
+  --color-mist: #f3f5f8;
+  --color-red: #d4202c;
+  --color-red-dark: #a9161f;
+  --font-sans: var(--font-barlow), "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --font-display: var(--font-barlow-condensed), "Arial Narrow", Impact, sans-serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility gutter {
+  padding-inline: clamp(20px, 4vw, 72px);
+}
+
+@utility section-y {
+  padding-block: clamp(72px, 9vw, 150px);
+}
+
+/* Small capital labels */
+@utility label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Big condensed capitals */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: #fff;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* White veils over photographs: from the bottom on phones, from one side on wide screens */
+@utility veil-left {
+  background-image: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0.9) 38%, rgba(255, 255, 255, 0) 85%);
+  @media (min-width: 1024px) {
+    background-image: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0.9) 42%, rgba(255, 255, 255, 0) 78%);
+  }
+}
+
+@utility veil-right {
+  background-image: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0.9) 38%, rgba(255, 255, 255, 0) 85%);
+  @media (min-width: 1024px) {
+    background-image: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0.9) 42%, rgba(255, 255, 255, 0) 78%);
+  }
+}

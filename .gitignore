@@ -1,0 +1,15 @@
+# Only the design options are tracked; everything else in this folder stays out
+/*
+!/.gitignore
+!/README.md
+!/dreamtique-next/
+!/dreamtique-tourism/
+!/dreamtique-explorer/
+!/dreamtique-mission/
+!/dreamtique-journal/
+
+node_modules/
+.next/
+.vercel/
+*.tsbuildinfo
+.env*

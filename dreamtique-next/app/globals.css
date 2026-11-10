@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Dreamtique: one motif, the map pin from the logo. Colours come from the logo. */
+@theme {
+  --color-bg: #f4f7fb;
+  --color-surface: #e4ebf5;
+  --color-ink: #0b1b33;
+  --color-muted: #3f506b;
+  --color-accent: #d4202c;
+  --color-accent-dark: #b81a25;
+  --color-blue: #1f5aa6;
+  --color-navy: #0b1b33;
+  --color-navy-ink: #f4f7fb;
+  --color-navy-muted: #b7c4d9;
+  --color-sky: #cfe0f5;
+  --font-sans: var(--font-jost), "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+
+  --text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --text-head: clamp(1.875rem, 1.2rem + 2.4vw, 3.25rem);
+  --text-display: clamp(2.25rem, 1rem + 3.6vw, 5.25rem);
+}
+
+@utility pin-clip {
+  clip-path: url(#pin);
+}
+
+@utility display {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+@utility pad-section {
+  padding-inline: clamp(16px, 2.2vw, 32px);
+  padding-block: clamp(56px, 6.5vw, 100px);
+}
+
+@utility gutter {
+  padding-inline: clamp(16px, 2.2vw, 32px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible {
+  outline-color: #fff;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
